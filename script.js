@@ -1,53 +1,41 @@
-const API_KEY = '7a15d5b73ce6edcb40eaac720c29acfe';
-
-
-async function loadArticles() {
-  try {
-    // GNews API - top headlines
-    const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=general&lang=en&max=10&apikey=${API_KEY}`);
-    const data = await response.json();
-    
-    // Fill Left Column
-    document.querySelector('.news_left').innerHTML = `
-      <h2>Left Perspective</h2>
-      <p><strong>${data.articles[0].title}</strong></p>
-      <p>By ${data.articles[0].source.name}</p>
-      <p><a href="${data.articles[0].url}" target="_blank">Read full article →</a></p>
-      <br>
-      <p><strong>${data.articles[1].title}</strong></p>
-      <p>By ${data.articles[1].source.name}</p>
-      <p><a href="${data.articles[1].url}" target="_blank">Read full article →</a></p>
-    `;
-    
-    // Fill Center Column
-    document.querySelector('.news_center').innerHTML = `
-      <h2>Center Perspective</h2>
-      <p><strong>${data.articles[3].title}</strong></p>
-      <p>By ${data.articles[3].source.name}</p>
-      <p><a href="${data.articles[3].url}" target="_blank">Read full article →</a></p>
-      <br>
-      <p><strong>${data.articles[4].title}</strong></p>
-      <p>By ${data.articles[4].source.name}</p>
-      <p><a href="${data.articles[4].url}" target="_blank">Read full article →</a></p>
-    `;
-    
-    // Fill Right Column
-    document.querySelector('.news_right').innerHTML = `
-      <h2>Right Perspective</h2>
-      <p><strong>${data.articles[6].title}</strong></p>
-      <p>By ${data.articles[6].source.name}</p>
-      <p><a href="${data.articles[6].url}" target="_blank">Read full article →</a></p>
-      <br>
-      <p><strong>${data.articles[7].title}</strong></p>
-      <p>By ${data.articles[7].source.name}</p>
-      <p><a href="${data.articles[7].url}" target="_blank">Read full article →</a></p>
-    `;
-    
-  } catch (error) {
-    console.log('Error loading articles:', error);
-  }
+// Demo articles - no API needed
+function loadArticles() {
+  // Left Column
+  document.querySelector('.news_left').innerHTML = `
+    <h2>Left Perspective</h2>
+    <p><strong>Climate Action Summit Calls for Immediate Global Response</strong></p>
+    <p>By The Guardian</p>
+    <p><a href="https://www.theguardian.com/environment" target="_blank">Read full article →</a></p>
+    <br>
+    <p><strong>Universal Healthcare Gains Support Across European Nations</strong></p>
+    <p>By BBC News</p>
+    <p><a href="https://www.bbc.com/news/health" target="_blank">Read full article →</a></p>
+  `;
+  
+  // Center Column
+  document.querySelector('.news_center').innerHTML = `
+    <h2>Center Perspective</h2>
+    <p><strong>Global Markets Show Mixed Results Amid Economic Uncertainty</strong></p>
+    <p>By Reuters</p>
+    <p><a href="https://www.reuters.com/markets/" target="_blank">Read full article →</a></p>
+    <br>
+    <p><strong>Tech Industry Leaders Discuss AI Regulation Framework</strong></p>
+    <p>By Associated Press</p>
+    <p><a href="https://apnews.com/technology" target="_blank">Read full article →</a></p>
+  `;
+  
+  // Right Column
+  document.querySelector('.news_right').innerHTML = `
+    <h2>Right Perspective</h2>
+    <p><strong>Tax Reform Bill Promises Economic Growth, Say Analysts</strong></p>
+    <p>By The Wall Street Journal</p>
+    <p><a href="https://www.wsj.com/economy" target="_blank">Read full article →</a></p>
+    <br>
+    <p><strong>Border Security Measures Show Positive Results</strong></p>
+    <p>By Fox News</p>
+    <p><a href="https://www.foxnews.com/politics" target="_blank">Read full article →</a></p>
+  `;
 }
-
 
 // Run when page loads
 loadArticles();
