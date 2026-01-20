@@ -1,13 +1,13 @@
-const API_KEY = 'a6702f284b194a24929e74b63a4f1b7b';
+const API_KEY = '7a15d5b73ce6edcb40eaac720c29acfe';
 
-// Fetch real articles when page loads
+
 async function loadArticles() {
   try {
-    // Get articles
- const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&pageSize=20&apiKey=${API_KEY}`);
+    // GNews API - top headlines
+    const response = await fetch(`https://gnews.io/api/v4/top-headlines?category=general&lang=en&max=10&apikey=${API_KEY}`);
     const data = await response.json();
     
-    // Fill Left Column (articles 0-2)
+    // Fill Left Column
     document.querySelector('.news_left').innerHTML = `
       <h2>Left Perspective</h2>
       <p><strong>${data.articles[0].title}</strong></p>
@@ -19,7 +19,7 @@ async function loadArticles() {
       <p><a href="${data.articles[1].url}" target="_blank">Read full article →</a></p>
     `;
     
-    // Fill Center Column (articles 3-4)
+    // Fill Center Column
     document.querySelector('.news_center').innerHTML = `
       <h2>Center Perspective</h2>
       <p><strong>${data.articles[3].title}</strong></p>
@@ -31,7 +31,7 @@ async function loadArticles() {
       <p><a href="${data.articles[4].url}" target="_blank">Read full article →</a></p>
     `;
     
-    // Fill Right Column (articles 6-7)
+    // Fill Right Column
     document.querySelector('.news_right').innerHTML = `
       <h2>Right Perspective</h2>
       <p><strong>${data.articles[6].title}</strong></p>
@@ -47,6 +47,7 @@ async function loadArticles() {
     console.log('Error loading articles:', error);
   }
 }
+
 
 // Run when page loads
 loadArticles();
