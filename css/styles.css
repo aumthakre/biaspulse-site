@@ -79,7 +79,7 @@ nav a:hover {
   gap: 2rem;
 }
 
-section.news {
+section.news_left, section.news_center, section.news_right {
   background-color: #ffffff;
   padding: 1.75rem;
   border-radius: 12px;
