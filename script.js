@@ -4,7 +4,7 @@ const API_KEY = 'a6702f284b194a24929e74b63a4f1b7b';
 async function loadArticles() {
   try {
     // Get articles
-    const response = await fetch(`https://newsapi.org/v2/everything?q=geopolitics&language=en&sortBy=publishedAt&pageSize=10&apiKey=${API_KEY}`);
+ const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&pageSize=20&apiKey=${API_KEY}`);
     const data = await response.json();
     
     // Fill Left Column (articles 0-2)
